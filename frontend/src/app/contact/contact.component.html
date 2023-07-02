@@ -1,0 +1,80 @@
+<div class="container mt-5 mb-5">
+    <div class="content">
+
+        <div class="left-side">
+            <div class="address details">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="topic">Address</div>
+                <div class="text-one">NP12</div>
+                <div class="text-two">Nagpur</div>
+            </div>
+            <div class="phone details">
+                <i class="fas fa-phone-alt"></i>
+                <div class="topic">Phone</div>
+                <div class="text-one">+0098 9893 5647</div>
+                <div class="text-two">+0096 3434 5678</div>
+            </div>
+            <div class="email details">
+                <i class="fas fa-envelope"></i>
+                <div class="topic">Email</div>
+                <div class="text-one">SD@gmail.com</div>
+
+            </div>
+        </div>
+
+
+        <div class="right-side">
+            <div class="topic-text">Send us a message</div>
+            <form [formGroup]="contactForm">
+                    <form class="form-group">
+                        <div class="input-box">
+                            <input type="text" placeholder="Enter your name" formControlName="Name">
+                        </div>
+                        <div class="input-box">
+                            <input type="email" placeholder="Enter your email" formControlName="Email">
+                        </div>
+                        <div class="input-box message-box">
+                            <input type="textarea" placeholder="Enter your message" formControlName="Message">
+                        </div>
+                        <div class="button">
+                            <input type="button" class="btn-primary" value="clear all" (click)="clear()">
+                        </div>
+                        <div class="button ml-2">
+                            <input type="button" class="btn-primary" value="submit" (click)="submit()">
+                        </div>
+                        <div class="button ml-2">
+                            <input type="button" class="btn-primary" value="update" (click)="update()">
+                        </div>
+                    </form>
+            </form>
+        </div>
+        
+    </div>
+
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Message</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let l of contactList; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{l.Name}}</td>
+                <td>{{l.Email}}</td>
+                <td>{{l.Message}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning m-1" (click)="edit(i)">edit</button>
+                    <button type="button" class="btn btn-danger m-1" (click)="delete(i)">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

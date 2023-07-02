@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+    <div class="content">
+        <div class="right-side">
+            <div class="topic-text">Send us a Feedback</div>
+            <form [formGroup]="feedbackForm">
+                <div class="input-box">
+                    <input type="text" placeholder="Enter your Name" formControlName="Name">
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Enter your Email" formControlName="Email">
+                </div>
+                <div class="input-box">
+                    <input type="number" placeholder="Enter your PhoneNumber" formControlName="PhoneNumber">
+                </div>
+                <div class="input-box message-box">
+                    <input type="textarea" placeholder="Enter your message" formControlName="Message">
+                </div>
+                <div class="button">
+                    <input type="button" class="btn-primary" value="clear all" (click)="clear()">
+                </div>
+                <div class="button ml-2">
+                    <input type="button" class="btn-primary" value="submit" (click)="submit()">
+                </div>
+                <div class="button ml-2">
+                    <input type="button" class="btn-primary" value="update" (click)="update()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">PhoneNumber</th>
+                <th scope="col">Message</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let l of feedbackList; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{l.Name}}</td>
+                <td>{{l.Email}}</td>
+                <td>{{l.PhoneNumber}}</td>
+                <td>{{l.Message}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary m-1" (click)="edit(i)">edit</button>
+                    <button type="button" class="btn btn-danger m-1" (click)="delete(i)">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
